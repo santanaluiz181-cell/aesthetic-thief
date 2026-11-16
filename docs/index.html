@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aesthetic-thief | Captura e Remixagem de Estética por Camadas</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B0D10'/%3E%3Ctext x='5' y='22' font-family='monospace' font-size='16' fill='%237CE08A'%3E%3E_%3C/text%3E%3C/svg%3E">
+  <meta name="description" content="Skill e CLI em Playwright que captura tokens, prints e animações de sites reais e remixa múltiplas estéticas por camada arquitetural.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/hybrid.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand-cli" href="#topo">&gt;_ aesthetic-thief</a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#camadas">Camadas</a>
+        <a href="#mixer">Layer Mixer</a>
+        <a href="https://github.com/santanaluiz181-cell/aesthetic-thief" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="topo" class="shell">
+    <section class="hero" aria-labelledby="hero-h1">
+      <span class="pixel-tag">[REA + HUMAN-CRAFT-FRONTEND]</span>
+      <h1 id="hero-h1" class="hero-title">
+        Capture estéticas reais e remixe por
+        <span class="crooked-word">
+          camadas
+          <svg class="crooked-underline" viewBox="0 0 180 12" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M2 7 Q48 2 95 8 T178 4" fill="none" stroke="#E07A5F" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        sem virar Frankenstein.
+      </h1>
+      <p class="hero-lead">
+        Esta própria página usa uma mistura em 4 camadas: 25% Antigravity Onyx (superfície), 25% Claude Editorial (serif + respiro), 25% Feito à mão (traço torto) e 25% CLI Pixel (bordas secas e tags).
+      </p>
+      <div class="cli-install">
+        <code id="cmd-skill">npx skills add santanaluiz181-cell/aesthetic-thief</code>
+        <button id="copy-skill-btn" class="btn-cli" type="button">Copiar</button>
+      </div>
+    </section>
+
+    <section id="camadas" class="section" aria-labelledby="camadas-h2">
+      <h2 id="camadas-h2" class="section-title">Composição por Camadas</h2>
+      <p class="hand-margin">regra de ouro: nunca misturar dois estilos no mesmo botão.</p>
+
+      <div class="layers-grid">
+        <article class="layer-card">
+          <h3>01 // Structure (Claude Editorial)</h3>
+          <p>Define ritmo de leitura, largura editorial e espaçamento entre blocos sem poluição visual.</p>
+        </article>
+        <article class="layer-card">
+          <h3>02 // Surface (Antigravity Onyx)</h3>
+          <p>Fundo <code>#0B0D10</code>, painéis <code>#13171D</code> e destaque cirúrgico em <code>#7CE0C3</code> com contraste AA.</p>
+        </article>
+        <article class="layer-card">
+          <h3>03 // Accent (Handmade Irregular)</h3>
+          <p>Sublinhados tortos em SVG, notas em <code>Caveat</code> e correções manuais que quebram a frieza.</p>
+        </article>
+        <article class="layer-card">
+          <h3>04 // Micro (CLI Pixel)</h3>
+          <p>Raio <code>0px</code>, borda de <code>1px</code>, fonte pixelada <code>VT323</code> e blocos de comando diretos.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="mixer" class="section" aria-labelledby="mixer-h2">
+      <h2 id="mixer-h2" class="section-title">Simulador de Layer Mixer</h2>
+      <p class="hand-margin">ative ou troque camadas para gerar o comando do blend_layers.py</p>
+
+      <div class="mixer-box">
+        <div class="mixer-controls" role="group" aria-label="Selecionar camadas ativas">
+          <button class="layer-btn" type="button" aria-pressed="true" data-flag="--structure claude-editorial">Structure: Claude</button>
+          <button class="layer-btn" type="button" aria-pressed="true" data-flag="--surface antigravity">Surface: Antigravity</button>
+          <button class="layer-btn" type="button" aria-pressed="true" data-flag="--accent handmade-ink">Accent: Handmade</button>
+          <button class="layer-btn" type="button" aria-pressed="true" data-flag="--micro cli-pixel">Micro: CLI Pixel</button>
+        </div>
+        <pre id="mixer-cmd" class="mixer-output">python tools/blend_layers.py --structure claude-editorial --surface antigravity --accent handmade-ink --micro cli-pixel --out DESIGN_SPEC.md</pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    <span>aesthetic-thief · MIT License</span>
+    <a href="https://github.com/santanaluiz181-cell/human-craft-frontend" target="_blank" rel="noopener noreferrer">human-craft-frontend</a>
+  </footer>
+
+  <script>
+    (function () {
+      const copyBtn = document.getElementById("copy-skill-btn");
+      const cmdSkill = document.getElementById("cmd-skill");
+      if (copyBtn && cmdSkill) {
+        copyBtn.addEventListener("click", async () => {
+          const orig = copyBtn.textContent;
+          try {
+            await navigator.clipboard.writeText(cmdSkill.textContent.trim());
+            copyBtn.textContent = "Copiado";
+          } catch (_e) {
+            copyBtn.textContent = "Selecionado";
+          }
+          setTimeout(() => { copyBtn.textContent = orig; }, 1600);
+        });
+      }
+
+      const layerBtns = Array.from(document.querySelectorAll(".layer-btn"));
+      const mixerOut = document.getElementById("mixer-cmd");
+      function updateCmd() {
+        const flags = layerBtns
+          .filter((b) => b.getAttribute("aria-pressed") === "true")
+          .map((b) => b.getAttribute("data-flag"));
+        mixerOut.textContent = `python tools/blend_layers.py ${flags.join(" ")} --out DESIGN_SPEC.md`;
+      }
+      layerBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const pressed = btn.getAttribute("aria-pressed") === "true";
+          btn.setAttribute("aria-pressed", String(!pressed));
+          updateCmd();
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
